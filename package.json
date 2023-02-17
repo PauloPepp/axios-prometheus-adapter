@@ -1,0 +1,56 @@
+{
+  "name": "axios-prometheus-adapter",
+  "version": "0.0.1",
+  "description": "Provides prometheus metrics for outgoing axios requests",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "readme.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node-dev examples/index.ts",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PauloPepp/axios-prometheus-adapter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "jest": {
+    "testTimeout": 30000,
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "restoreMocks": true,
+    "clearMocks": true,
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "testMatch": [
+      "./**/*.spec.ts"
+    ]
+  },
+  "dependencies": {
+    "axios": "^1.2.4",
+    "prom-client": "^14.1.1"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express": "^4.17.16",
+    "@types/jest": "^29.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "eslint": "^8.33.0",
+    "express": "^4.18.2",
+    "jest": "^29.4.0",
+    "ts-jest": "^29.0.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.5"
+  }
+}
