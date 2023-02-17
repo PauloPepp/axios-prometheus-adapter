@@ -1,7 +1,6 @@
 {
   "include": [
     "./lib",
-    "./examples",
     "index.ts"
   ],
   "exclude": [
