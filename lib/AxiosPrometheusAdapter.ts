@@ -19,8 +19,6 @@ export const createAxiosPrometheusMiddleware = (
     ...config,
   });
 
-  // todo: chack user
-
   registry.registerMetric(clientRequestDuration);
 
   axiosInstance.interceptors.request.use((config: any) => {

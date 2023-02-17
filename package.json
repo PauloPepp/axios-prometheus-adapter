@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "readme.md"
+    "readme.md",
+    "package.json"
   ],
   "scripts": {
     "build": "tsc",
