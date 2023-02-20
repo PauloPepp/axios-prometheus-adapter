@@ -18,8 +18,14 @@
     "type": "git",
     "url": "https://github.com/PauloPepp/axios-prometheus-adapter.git"
   },
-  "author": "",
+  "author": "PauloPepp <tevesir@gmail.com>",
   "license": "ISC",
+  "keywords": [
+    "axios",
+    "prometheus",
+    "metrics",
+    "interceptor"
+  ],
   "jest": {
     "testTimeout": 30000,
     "testEnvironment": "node",
