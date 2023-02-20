@@ -63,34 +63,34 @@ Output:
 ...
 # HELP http_client_requests_seconds_count http_client_requests_seconds_count
 # TYPE http_client_requests_seconds_count histogram
-http_client_requests_seconds_count_bucket{le="0.005",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
-http_client_requests_seconds_count_bucket{le="0.01",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
-http_client_requests_seconds_count_bucket{le="0.025",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
-http_client_requests_seconds_count_bucket{le="0.05",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
-http_client_requests_seconds_count_bucket{le="0.1",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
-http_client_requests_seconds_count_bucket{le="0.25",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
-http_client_requests_seconds_count_bucket{le="0.5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
-http_client_requests_seconds_count_bucket{le="1",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
-http_client_requests_seconds_count_bucket{le="2.5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
-http_client_requests_seconds_count_bucket{le="5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
-http_client_requests_seconds_count_bucket{le="10",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
-http_client_requests_seconds_count_bucket{le="+Inf",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
-http_client_requests_seconds_count_sum{status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0.257366432
-http_client_requests_seconds_count_count{status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
-http_client_requests_seconds_count_bucket{le="0.005",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0
-http_client_requests_seconds_count_bucket{le="0.01",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0
-http_client_requests_seconds_count_bucket{le="0.025",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0
-http_client_requests_seconds_count_bucket{le="0.05",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0
-http_client_requests_seconds_count_bucket{le="0.1",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0
-http_client_requests_seconds_count_bucket{le="0.25",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
-http_client_requests_seconds_count_bucket{le="0.5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
-http_client_requests_seconds_count_bucket{le="1",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
-http_client_requests_seconds_count_bucket{le="2.5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
-http_client_requests_seconds_count_bucket{le="5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
-http_client_requests_seconds_count_bucket{le="10",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
-http_client_requests_seconds_count_bucket{le="+Inf",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
-http_client_requests_seconds_count_sum{status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0.107517055
-http_client_requests_seconds_count_count{status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
+http_client_requests_seconds_bucket{le="0.005",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
+http_client_requests_seconds_bucket{le="0.01",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
+http_client_requests_seconds_bucket{le="0.025",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
+http_client_requests_seconds_bucket{le="0.05",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
+http_client_requests_seconds_bucket{le="0.1",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
+http_client_requests_seconds_bucket{le="0.25",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0
+http_client_requests_seconds_bucket{le="0.5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
+http_client_requests_seconds_bucket{le="1",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
+http_client_requests_seconds_bucket{le="2.5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
+http_client_requests_seconds_bucket{le="5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
+http_client_requests_seconds_bucket{le="10",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
+http_client_requests_seconds_bucket{le="+Inf",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
+http_client_requests_seconds_sum{status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 0.257366432
+http_client_requests_seconds_count{status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/1"} 1
+http_client_requests_seconds_bucket{le="0.005",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0
+http_client_requests_seconds_bucket{le="0.01",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0
+http_client_requests_seconds_bucket{le="0.025",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0
+http_client_requests_seconds_bucket{le="0.05",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0
+http_client_requests_seconds_bucket{le="0.1",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0
+http_client_requests_seconds_bucket{le="0.25",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
+http_client_requests_seconds_bucket{le="0.5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
+http_client_requests_seconds_bucket{le="1",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
+http_client_requests_seconds_bucket{le="2.5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
+http_client_requests_seconds_bucket{le="5",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
+http_client_requests_seconds_bucket{le="10",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
+http_client_requests_seconds_bucket{le="+Inf",status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
+http_client_requests_seconds_sum{status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 0.107517055
+http_client_requests_seconds_count{status_code="200",method="GET",protocol="https:",host="jsonplaceholder.typicode.com",path="/posts/2"} 1
 ```
 
 ### Custom config
