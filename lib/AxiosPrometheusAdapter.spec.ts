@@ -28,8 +28,8 @@ describe('AxiosPrometheusAdapter', () => {
 
     expect(client.Histogram).toHaveBeenCalledTimes(1);
     expect(client.Histogram).toHaveBeenCalledWith({
-      name: 'http_client_requests_seconds_count',
-      help: 'http_client_requests_seconds_count',
+      name: 'http_client_requests_seconds',
+      help: 'Outgoing requests metrics',
       labelNames: ['status_code', 'method', 'protocol', 'host', 'path'],
     });
     expect(mockRegistry.registerMetric).toHaveBeenCalledTimes(1);
@@ -73,7 +73,7 @@ describe('AxiosPrometheusAdapter', () => {
         method: 'GET',
         protocol: 'https',
         host: 'localhost',
-        path: '/1234',
+        path: '/1234?id=1234',
       },
     };
     const expectedLabels = {

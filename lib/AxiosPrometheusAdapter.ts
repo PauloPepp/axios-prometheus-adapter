@@ -1,4 +1,5 @@
-import { AxiosInstance } from 'axios';
+import type { AxiosInstance } from 'axios';
+import type { Registry } from 'prom-client';
 import client from 'prom-client';
 
 export type AxiosPrometheusAdapterConfig = {
@@ -9,12 +10,12 @@ export type AxiosPrometheusAdapterConfig = {
 
 export const createAxiosPrometheusMiddleware = (
   axiosInstance: AxiosInstance, 
-  registry: client.Registry, 
+  registry: Registry, 
   config?: AxiosPrometheusAdapterConfig
 ): void => {
   const clientRequestDuration = new client.Histogram({
-    name: 'http_client_requests_seconds_count',
-    help: 'http_client_requests_seconds_count',
+    name: 'http_client_requests_seconds',
+    help: 'Outgoing requests metrics',
     labelNames: ['status_code', 'method', 'protocol', 'host', 'path'],
     ...config,
   });
@@ -36,7 +37,7 @@ export const createAxiosPrometheusMiddleware = (
       method: response.request.method,
       protocol: response.request.protocol,
       host: response.request.host,
-      path: response.request.path,
+      path: response.request.path.split('?')[0],
     };
     response.config.metadata.endTimer(labels);
     return response;
@@ -46,7 +47,7 @@ export const createAxiosPrometheusMiddleware = (
       method: error.response.request.method,
       protocol: error.response.request.protocol,
       host: error.response.request.host,
-      path: error.response.request.path,
+      path: error.response.request.path.split('?')[0],
     };
     error.config.metadata.endTimer(labels);
     return Promise.reject(error);
