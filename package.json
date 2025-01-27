@@ -1,6 +1,6 @@
 {
   "name": "axios-prometheus-adapter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Provides prometheus metrics for outgoing axios requests",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
