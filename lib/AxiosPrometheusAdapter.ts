@@ -9,8 +9,8 @@ export type AxiosPrometheusAdapterConfig = {
 };
 
 export const createAxiosPrometheusMiddleware = (
-  axiosInstance: AxiosInstance, 
-  registry: Registry, 
+  axiosInstance: AxiosInstance,
+  registry: Registry,
   config?: AxiosPrometheusAdapterConfig
 ): void => {
   const clientRequestDuration = new client.Histogram({
@@ -42,13 +42,32 @@ export const createAxiosPrometheusMiddleware = (
     response.config.metadata.endTimer(labels);
     return response;
   }, error => {
-    const labels = {
-      status_code: error.response.status,
-      method: error.response.request.method,
-      protocol: error.response.request.protocol,
-      host: error.response.request.host,
-      path: error.response.request.path.split('?')[0],
-    };
+    let labels;
+    if (error.response) {
+      labels = {
+        status_code: error.response.status,
+        method: error.response.request.method,
+        protocol: error.response.request.protocol,
+        host: error.response.request.host,
+        path: error.response.request.path.split('?')[0],
+      };
+    } else if (error.request._currentRequest) {
+      labels = {
+        status_code: error.status,
+        method: error.request._currentRequest.method,
+        protocol: error.request._currentRequest.protocol,
+        host: error.request._currentRequest.host,
+        path: error.request._currentRequest.path.split('?')[0],
+      };
+    } else {
+      labels = {
+        status_code: 500,
+        method: "UNKNOWN",
+        protocol: "UNKNOWN",
+        host: "UNKNOWN",
+        path: "UNKNOWN",
+      };
+    }
     error.config.metadata.endTimer(labels);
     return Promise.reject(error);
   });

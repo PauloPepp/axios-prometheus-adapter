@@ -89,4 +89,75 @@ describe('AxiosPrometheusAdapter', () => {
     expect(mockEndTimer).toHaveBeenCalledWith(expectedLabels);
     expect(response).toEqual(mockResponse);
   });
+
+  test('responseInterceptor callback function execution on error with no response', () => {
+    const mockEndTimer = jest.fn();
+    createAxiosPrometheusMiddleware(mockAxios as AxiosInstance, mockRegistry as Registry);
+
+    const errorInterceptor = mockAxios.interceptors.response.use.mock.calls[0][1];
+    const mockRequet = {
+      method: 'GET',
+      protocol: 'https',
+      host: 'localhost',
+      path: '/1234?id=1234',
+    };
+    const mockError = {
+      config: {
+        metadata: {
+          endTimer: mockEndTimer,
+        },
+      },
+      status: 'ECONNREFUSED',
+      request: {
+        ...mockRequet,
+        _currentRequest: mockRequet
+      },
+    };
+    const expectedLabels = {
+      status_code: 'ECONNREFUSED',
+      method: 'GET',
+      protocol: 'https',
+      host: 'localhost',
+      path: '/1234',
+    };
+    const response = errorInterceptor(mockError);
+
+    expect(response).rejects.toEqual(mockError);
+    expect(mockEndTimer).toHaveBeenCalledWith(expectedLabels);
+  });
+
+  test('responseInterceptor callback function execution on error with no response and no Axios _currentRequest internal property', () => {
+    const mockEndTimer = jest.fn();
+    createAxiosPrometheusMiddleware(mockAxios as AxiosInstance, mockRegistry as Registry);
+
+    const errorInterceptor = mockAxios.interceptors.response.use.mock.calls[0][1];
+    const mockRequet = {
+      method: 'GET',
+      protocol: 'https',
+      host: 'localhost',
+      path: '/1234?id=1234',
+    };
+    const mockError = {
+      config: {
+        metadata: {
+          endTimer: mockEndTimer,
+        },
+      },
+      status: 'ECONNREFUSED',
+      request: {
+        ...mockRequet,
+      },
+    };
+    const expectedLabels = {
+      status_code: 500,
+      method: "UNKNOWN",
+      protocol: "UNKNOWN",
+      host: "UNKNOWN",
+      path: "UNKNOWN",
+    };
+    const response = errorInterceptor(mockError);
+
+    expect(response).rejects.toEqual(mockError);
+    expect(mockEndTimer).toHaveBeenCalledWith(expectedLabels);
+  });
 });
