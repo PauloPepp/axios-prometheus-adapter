@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { createAxiosPrometheusMiddleware } from './AxiosPrometheusAdapter';
 import client, { Registry } from 'prom-client';
 import { AxiosInstance } from 'axios';
@@ -77,11 +78,11 @@ describe('AxiosPrometheusAdapter', () => {
       },
     };
     const expectedLabels = {
-      status_code: 200,
+      status_code: '200',
       method: 'GET',
       protocol: 'https',
       host: 'localhost',
-      path: '/1234',
+      path: '/:id',
     };
 
     const response = responseInterceptor(mockResponse);
@@ -110,7 +111,7 @@ describe('AxiosPrometheusAdapter', () => {
       status: 'ECONNREFUSED',
       request: {
         ...mockRequet,
-        _currentRequest: mockRequet
+        _currentRequest: mockRequet,
       },
     };
     const expectedLabels = {
@@ -118,7 +119,7 @@ describe('AxiosPrometheusAdapter', () => {
       method: 'GET',
       protocol: 'https',
       host: 'localhost',
-      path: '/1234',
+      path: '/:id',
     };
     const response = errorInterceptor(mockError);
 
@@ -150,10 +151,10 @@ describe('AxiosPrometheusAdapter', () => {
     };
     const expectedLabels = {
       status_code: 500,
-      method: "UNKNOWN",
-      protocol: "UNKNOWN",
-      host: "UNKNOWN",
-      path: "UNKNOWN",
+      method: 'UNKNOWN',
+      protocol: 'UNKNOWN',
+      host: 'UNKNOWN',
+      path: 'UNKNOWN',
     };
     const response = errorInterceptor(mockError);
 

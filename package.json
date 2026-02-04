@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.prod.json",
-    "start": "ts-node-dev examples/index.ts",
+    "start": "ts-node-dev examples/axiosRequest.ts",
     "test": "jest"
   },
   "repository": {
